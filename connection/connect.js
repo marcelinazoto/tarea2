@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 mongoose.connect(
-  `mongodb://172.28.0.2:27017/examen`,
+  `mongodb://172.28.0.2:27017/practica1`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

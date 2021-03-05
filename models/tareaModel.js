@@ -16,7 +16,7 @@ class TareaModel
   /* 
   C. create
   */
-  createTarea(name, description, date, hour, done) 
+  createTarea(foto, nombre, email, password) 
   {
     var tarea = {
       foto,

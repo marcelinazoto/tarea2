@@ -8,10 +8,10 @@ var inittest = async () => {
     "1234",
   );
 
-  console.log(await todomodel.getTodos());
-  //todomodel.deleteTodo("603c11db8a9af400eb00a9fb");
+  console.log(await tareamodel.getTareas());
+  //tareamodel.deleteTarea("603c11db8a9af400eb00a9fb");
 
-  //await todomodel.updateModel("603c126d15dc72011191996e", { name: "Test3" });
+  //await tareamodel.updateModel("603c126d15dc72011191996e", { name: "Test3" });
   //console.log(await tareamodel.getTareas());
 };
 inittest();
