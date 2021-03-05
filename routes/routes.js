@@ -2,14 +2,14 @@ import express from "express";
 import IndexController from "../controller/indexController.js";
 import UserController from "../controller/userController.js";
 import RolesController from "../controller/rolesController.js";
-import TodoController from "../controller/todoController.js";
+import TareaController from "../controller/tareaController.js";
 import JsonWebTokenManagement from "../middleware/JsonWebTokenManagement.js";
 
 var router = express.Router();
 var indexControler = new IndexController();
 var userController = new UserController();
 var rolesController = new RolesController();
-var todoController = new TodoController();
+var tareaController = new TareaController();
 var jsonwebtokenmanagement = new JsonWebTokenManagement();
 /* GET home page. */
 /**
@@ -42,9 +42,9 @@ router.delete("/roles/:id", rolesController.deleteRol);
 /* 
 Implemente 
 */
-router.get("/todo", todoController.getTodos);
-router.post("/todo", todoController.createTodo);
-router.put("/todo/:id", todoController.updateTodo);
-router.delete("/todo/:id", todoController.deleteTodo);
+router.get("/tarea", tareaController.getTareas);
+router.post("/tarea", tareaController.createTarea);
+router.put("/tarea/:id", tareaController.updateTarea);
+router.delete("/tarea/:id", tareaController.deleteTarea);
 
 export default router;

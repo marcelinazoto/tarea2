@@ -7,7 +7,7 @@ class IndexController {
   constructor() {}
   //services
   index(request, response) {
-    response.status(200).json({ msn: "Api Test v. 2.0" });
+    response.status(200).json({ msn: "PRACTICA Nº: 1 - AUXILIATURA SEMINARIO" });
   }
   async login(request, response) {
     const body = request.body;

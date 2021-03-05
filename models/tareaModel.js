@@ -1,39 +1,33 @@
 import mongoose from "../connection/connect.js";
-class TodoModel 
+class TareaModel 
 {
   constructor() 
   {
     this.Schema = mongoose.Schema;
-    this.TodoSchema = new this.Schema(
+    this.TareaSchema = new this.Schema(
     {
-      name:String,
-      description:String,
-      date: Date,
-      hour: String,
-      done: {
-        type: Boolean,
-        default: false
-
-      }
+      foto: String,
+      nombre: String,
+      email: String,
+      password: String,
     });
-    this.mymodel = mongoose.model("todos", this.TodoSchema);
+    this.mymodel = mongoose.model("tareas", this.TareaSchema);
   }
   /* 
   C. create
   */
-  createTodo(name, description, date, hour, done) 
+  createTarea(name, description, date, hour, done) 
   {
-    var todo = {
-      name,
-      description,
-      date,
-      hour,
-      done,
+    var tarea = {
+      foto,
+      nombre,
+      email,
+      password,
     };
-    var newtodo = new this.mymodel(todo);
+    var newtarea = new this.mymodel(tarea);
     return new Promise((resolve, reject) => 
     {
-      newtodo.save().then((docs) => 
+      newtarea.save().then((docs) => 
       {
         console.log("Usuario registrado");
         resolve(docs);
@@ -43,7 +37,7 @@ class TodoModel
   /*
   R. read
   */
-  getTodos() {
+  getTareas() {
     return new Promise((resolve, reject) => 
     {
       this.mymodel.find({}, (err, docs) => 
@@ -61,9 +55,9 @@ class TodoModel
    /*
   U. update
   */
-  updateModel(id, todoUpdate) {
+  updateModel(id, tareaUpdate) {
     return new Promise((resolve, reject) => {
-      this.mymodel.update({ _id: id }, { $set: todoUpdate }, (err, docs) => {
+      this.mymodel.update({ _id: id }, { $set: tareaUpdate }, (err, docs) => {
         if (err) {
           console.log(err);
           resolve(err);
@@ -76,7 +70,7 @@ class TodoModel
   /*
   D. delete
   */
-  deleteTodo(id) {
+  deleteTarea(id) {
     return new Promise((resolve, reject) => {
       this.mymodel.remove({ _id: id }).then((err, docs) => {
         if (err) {
@@ -92,4 +86,4 @@ class TodoModel
     return this.mymodel;
   }
 }
-export default TodoModel;
+export default TareaModel;

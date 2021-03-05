@@ -1,12 +1,12 @@
-import TodoModel from "../models/todoModel.js";
-var TODO = new TodoModel();
-class TodoController
+import TareaModel from "../models/tareaModel.js";
+var TAREA = new TareaModel();
+class TareaController
 {
     constructor() {}
-    async createTodo(request, response) 
+    async createTarea(request, response) 
     {
         var data = request.body;
-        var result = await TODO.createTodo(
+        var result = await TAREA.createTarea(
             data.name,
             data.description,
             new Date(),
@@ -15,23 +15,23 @@ class TodoController
         );
         response.status(200).json(result);
     }
-    async getTodos(request, response) 
+    async getTareas(request, response) 
     {
-        var result = await TODO.getTodos();
+        var result = await TAREA.getTareas();
         response.status(200).json(result);
     }
-    async updateTodo(request, response) 
+    async updateTarea(request, response) 
     {
         var id = request.params.id;
         var updatedata = request.body;
-        var result = await TODO.updateModel(id, updatedata);
+        var result = await TAREA.updateModel(id, updatedata);
         response.status(200).json(result);
     }
-    async deleteTodo( request, response) 
+    async deleteTarea( request, response) 
     {
         var id = request.params.id;
-        var result = await TODO.deleteTodo(id);
+        var result = await TAREA.deleteTarea(id);
         response.status(200).json(result);
     }
 }
-export default TodoController;
+export default TareaController;
